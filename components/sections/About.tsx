@@ -73,7 +73,6 @@ export default function About() {
             <div
               className="relative w-32 h-32 rounded-full overflow-hidden ring-2 flex-shrink-0"
               style={{
-                ringColor: "#DC143C",
                 boxShadow: "0 0 0 2px #DC143C, 0 0 20px rgba(220,20,60,0.3)",
                 background: "linear-gradient(135deg, #1a0000, #2a0a0a)",
               }}
