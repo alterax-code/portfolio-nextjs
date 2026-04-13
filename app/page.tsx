@@ -6,6 +6,7 @@ import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
 import Skills from "@/components/sections/Skills";
 import Projects from "@/components/sections/Projects";
+import Timeline from "@/components/sections/Timeline";
 
 export default function Home() {
   const [cvModalOpen, setCvModalOpen] = useState(false);
@@ -18,6 +19,7 @@ export default function Home() {
         <About />
         <Skills />
         <Projects />
+        <Timeline />
         {/* CvModal — Phase 11 */}
         {cvModalOpen && (
           <dialog
