@@ -1,26 +1,258 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
+/* ============================================
+   TAILWIND v4 THEME — Dark/Crimson Portfolio
+   ============================================ */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Colors */
+  --color-primary-red:    #DC143C;
+  --color-dark-red:       #8B0000;
+  --color-bg-dark:        #0A0A0A;
+  --color-bg-dark-2:      #1A1A1A;
+  --color-text-light:     #E0E0E0;
+  --color-text-secondary: #BBBBBB;
+  --color-accent-red:     #FF0000;
+
+  /* Fonts */
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ============================================
+   CSS CUSTOM PROPERTIES
+   (shadows/glows — non expressibles en Tailwind)
+   ============================================ */
+:root {
+  --glow-title:       0 0 10px rgba(220, 20, 60, 0.5);
+  --glow-card-hover:  0 8px 30px rgba(220, 20, 60, 0.4);
+  --glow-btn-hover:   0 4px 15px rgba(220, 20, 60, 0.5);
+  --glow-dot-active:  0 0 8px rgba(220, 20, 60, 0.8);
+  --border-card:      rgba(220, 20, 60, 0.3);
+  --border-card-hover: #DC143C;
+  --gradient-btn:     linear-gradient(135deg, #DC143C, #8B0000);
+  --gradient-btn-hover: linear-gradient(135deg, #8B0000, #000);
+  --gradient-progress: linear-gradient(90deg, #8B0000, #DC143C, #FF0000);
+  --gradient-navbar:  linear-gradient(135deg, #1a0000, #0a0a0a);
+}
+
+/* ============================================
+   GLOBAL RESET — Always Dark
+   ============================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #0A0A0A;
+  color: #E0E0E0;
+  font-family: var(--font-sans);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ============================================
+   SCROLLBAR CUSTOM ROUGE
+   ============================================ */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #DC143C #0A0A0A;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0A0A0A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #8B0000, #DC143C);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #DC143C, #FF0000);
+}
+
+/* ============================================
+   KEYFRAMES
+   ============================================ */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(220, 20, 60, 0.4),
+                0 0 10px rgba(220, 20, 60, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(220, 20, 60, 0.8),
+                0 0 30px rgba(220, 20, 60, 0.4);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes dialogShow {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+/* Glow sur les titres */
+.glow-text {
+  text-shadow: var(--glow-title);
+}
+
+/* Fade-in scroll — état initial */
+.section-fade {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.section-fade.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Boutons gradient rouge */
+.btn-primary {
+  background: var(--gradient-btn);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.625rem 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-primary:hover {
+  background: var(--gradient-btn-hover);
+  box-shadow: var(--glow-btn-hover);
+  transform: translateY(-2px);
+}
+
+/* Tech tags */
+.tech-tag {
+  background: linear-gradient(135deg, rgba(139, 0, 0, 0.4), rgba(220, 20, 60, 0.3));
+  border: 1px solid rgba(220, 20, 60, 0.5);
+  color: #E0E0E0;
+  border-radius: 20px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.tech-tag:hover {
+  border-color: #DC143C;
+  box-shadow: 0 0 8px rgba(220, 20, 60, 0.4);
+}
+
+/* Cards */
+.card {
+  background: #1A1A1A;
+  border: 1px solid var(--border-card);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  border-color: var(--border-card-hover);
+  box-shadow: var(--glow-card-hover);
+  transform: translateY(-4px);
+}
+
+/* Section headings */
+.section-title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: #E0E0E0;
+  text-shadow: var(--glow-title);
+  margin-bottom: 0.5rem;
+}
+
+.section-title span {
+  color: #DC143C;
+}
+
+/* Cursor typing effect */
+.typing-cursor {
+  display: inline-block;
+  width: 3px;
+  height: 1.1em;
+  background: #DC143C;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  animation: blink 1s step-end infinite;
+}
+
+/* Dialog / Modal */
+dialog {
+  background: #1A1A1A;
+  border: 1px solid rgba(220, 20, 60, 0.3);
+  border-radius: 16px;
+  padding: 0;
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow: hidden;
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(4px);
+}
+
+dialog[open] {
+  animation: dialogShow 0.2s ease;
+}
+
+/* Focus visible */
+:focus-visible {
+  outline: 2px solid #DC143C;
+  outline-offset: 2px;
+}
+
+/* Selection */
+::selection {
+  background: rgba(220, 20, 60, 0.35);
+  color: #fff;
 }
