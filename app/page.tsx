@@ -8,6 +8,8 @@ import Skills from "@/components/sections/Skills";
 import Projects from "@/components/sections/Projects";
 import Timeline from "@/components/sections/Timeline";
 import Contact from "@/components/sections/Contact";
+import CvModal from "@/components/CvModal";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   const [cvModalOpen, setCvModalOpen] = useState(false);
@@ -22,25 +24,9 @@ export default function Home() {
         <Projects />
         <Timeline />
         <Contact />
-        {/* CvModal — Phase 11 */}
-        {cvModalOpen && (
-          <dialog
-            open
-            className="fixed inset-0 z-50 flex items-center justify-center"
-            style={{ background: "rgba(0,0,0,0.8)" }}
-          >
-            <div className="card p-8 text-center">
-              <p className="text-text-light mb-4">CV Modal — Phase 11</p>
-              <button
-                className="btn-primary"
-                onClick={() => setCvModalOpen(false)}
-              >
-                Fermer
-              </button>
-            </div>
-          </dialog>
-        )}
       </main>
+      <Footer />
+      {cvModalOpen && <CvModal onClose={() => setCvModalOpen(false)} />}
     </>
   );
 }

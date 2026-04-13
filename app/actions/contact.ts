@@ -39,7 +39,7 @@ export async function sendContact(
 
   try {
     const { error } = await resend.emails.send({
-      from:    "Portfolio <onboarding@resend.dev>",
+      from:    "Portfolio <noreply@lucas-jacob.com>",
       to:      "contact@lucas-jacob.com",
       replyTo: email,
       subject: `[Portfolio] ${subject}`,
