@@ -8,11 +8,29 @@ export default function Navbar() {
   const { t, lang, toggleLang } = useLang();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const ids = ["about", "skills", "projects", "timeline", "contact"];
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) setActiveSection(entry.target.id);
+        }
+      },
+      { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
+    );
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
   }, []);
 
   // Close mobile menu on resize to desktop
@@ -80,22 +98,28 @@ export default function Navbar() {
 
           {/* Desktop nav links */}
           <div className="hidden md:flex items-center gap-6">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavClick(link.href);
-                }}
-                className="text-sm font-medium text-text-secondary hover:text-primary-red transition-colors duration-200 relative group"
-              >
-                {link.label}
-                <span
-                  className="absolute -bottom-1 left-0 w-0 h-px bg-primary-red transition-all duration-300 group-hover:w-full"
-                />
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const id = link.href.slice(1);
+              const isActive = activeSection === id;
+              return (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavClick(link.href);
+                  }}
+                  className="text-sm font-medium transition-colors duration-200 relative group"
+                  style={{ color: isActive ? "#DC143C" : "#BBBBBB" }}
+                >
+                  {link.label}
+                  <span
+                    className="absolute -bottom-1 left-0 h-px bg-primary-red transition-all duration-300"
+                    style={{ width: isActive ? "100%" : "0%" }}
+                  />
+                </a>
+              );
+            })}
           </div>
 
           {/* Right: lang toggle + hamburger */}
@@ -142,20 +166,27 @@ export default function Navbar() {
         style={{ background: "rgba(10, 10, 10, 0.98)" }}
       >
         <div className="px-4 py-3 flex flex-col gap-1">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={(e) => {
-                e.preventDefault();
-                handleNavClick(link.href);
-              }}
-              className="py-3 px-2 text-sm font-medium text-text-secondary hover:text-primary-red border-b transition-colors duration-200"
-              style={{ borderColor: "rgba(220, 20, 60, 0.15)" }}
-            >
-              {link.label}
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            const id = link.href.slice(1);
+            const isActive = activeSection === id;
+            return (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick(link.href);
+                }}
+                className="py-3 px-2 text-sm font-medium border-b transition-colors duration-200"
+                style={{
+                  color: isActive ? "#DC143C" : "#BBBBBB",
+                  borderColor: "rgba(220, 20, 60, 0.15)",
+                }}
+              >
+                {link.label}
+              </a>
+            );
+          })}
         </div>
       </div>
     </nav>
