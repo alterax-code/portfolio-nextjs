@@ -245,6 +245,26 @@ dialog[open] {
   animation: dialogShow 0.2s ease;
 }
 
+/* Embla carousel slide responsive widths */
+.embla-slide {
+  flex: none;
+  min-width: 0;
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .embla-slide { width: calc(50% - 12px); }
+}
+
+@media (min-width: 1024px) {
+  .embla-slide { width: calc(33.333% - 16px); }
+}
+
+/* Scroll anchor offset — clear fixed navbar (64px) */
+section[id] {
+  scroll-margin-top: 72px;
+}
+
 /* Focus visible */
 :focus-visible {
   outline: 2px solid #DC143C;

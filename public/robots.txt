@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://lucas-jacob.com/sitemap.xml

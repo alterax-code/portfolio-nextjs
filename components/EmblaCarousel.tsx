@@ -62,7 +62,7 @@ export default function EmblaCarousel({
           style={{ gap: `${gap}px` }}
         >
           {children.map((child, i) => (
-            <div key={i} className="flex-none w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] min-w-0">
+            <div key={i} className="embla-slide">
               {child}
             </div>
           ))}

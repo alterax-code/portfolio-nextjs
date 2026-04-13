@@ -43,6 +43,12 @@ export const metadata: Metadata = {
       "Portfolio de Lucas Jacob, étudiant MSc Data Science à EPITECH Paris.",
   },
   robots: { index: true, follow: true },
+  icons: {
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+  },
+  metadataBase: new URL("https://lucas-jacob.com"),
+  alternates: { canonical: "/" },
 };
 
 export default function RootLayout({
