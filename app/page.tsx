@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/sections/Hero";
+import About from "@/components/sections/About";
 
 export default function Home() {
   const [cvModalOpen, setCvModalOpen] = useState(false);
@@ -12,6 +13,7 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero onOpenCvModal={() => setCvModalOpen(true)} />
+        <About />
         {/* CvModal — Phase 11 */}
         {cvModalOpen && (
           <dialog
