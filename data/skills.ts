@@ -1,8 +1,6 @@
 export type Skill = {
   name: string;
-  level: number; // 0–100
-  labelFr: string;
-  labelEn: string;
+  usedIn: string;
 };
 
 export type SkillDomain = {
@@ -15,26 +13,26 @@ export type SkillDomain = {
 export const skillDomains: SkillDomain[] = [
   {
     id: "frontend",
-    titleFr: "Développement Frontend",
-    titleEn: "Frontend Development",
+    titleFr: "Frontend & Web",
+    titleEn: "Frontend & Web",
     skills: [
-      { name: "HTML5 / CSS3",      level: 85, labelFr: "Avancé",        labelEn: "Advanced" },
-      { name: "JavaScript (ES6+)", level: 80, labelFr: "Avancé",        labelEn: "Advanced" },
-      { name: "React",             level: 65, labelFr: "Intermédiaire",  labelEn: "Intermediate" },
-      { name: "Next.js",           level: 60, labelFr: "Intermédiaire",  labelEn: "Intermediate" },
-      { name: "Tailwind CSS",      level: 60, labelFr: "Intermédiaire",  labelEn: "Intermediate" },
+      { name: "HTML5 / CSS3",      usedIn: "Portfolio, Stage Plaoweb" },
+      { name: "JavaScript (ES6+)", usedIn: "Portfolio, VOLT" },
+      { name: "React",             usedIn: "Portfolio" },
+      { name: "Next.js",           usedIn: "Portfolio" },
+      { name: "Tailwind CSS",      usedIn: "Portfolio" },
     ],
   },
   {
     id: "backend",
-    titleFr: "Développement Backend",
-    titleEn: "Backend Development",
+    titleFr: "Backend & Bases de données",
+    titleEn: "Backend & Databases",
     skills: [
-      { name: "Node.js",        level: 70, labelFr: "Intermédiaire+", labelEn: "Intermediate+" },
-      { name: "PHP / Symfony",  level: 65, labelFr: "Intermédiaire",  labelEn: "Intermediate" },
-      { name: "Python (web)",   level: 60, labelFr: "Intermédiaire",  labelEn: "Intermediate" },
-      { name: "MySQL / SQL",    level: 70, labelFr: "Intermédiaire+", labelEn: "Intermediate+" },
-      { name: "API REST",       level: 75, labelFr: "Avancé",         labelEn: "Advanced" },
+      { name: "Node.js",       usedIn: "VOLT, Portfolio" },
+      { name: "PHP / Symfony", usedIn: "Stage Plaoweb" },
+      { name: "Python (web)",  usedIn: "PrankGuard" },
+      { name: "MySQL / SQL",   usedIn: "Stage Plaoweb" },
+      { name: "API REST",      usedIn: "VOLT, Portfolio" },
     ],
   },
   {
@@ -42,10 +40,10 @@ export const skillDomains: SkillDomain[] = [
     titleFr: "Data Science & Python",
     titleEn: "Data Science & Python",
     skills: [
-      { name: "Python",          level: 80, labelFr: "Avancé",       labelEn: "Advanced" },
-      { name: "Machine Learning",level: 40, labelFr: "Débutant+",    labelEn: "Beginner+" },
-      { name: "Pandas / NumPy",  level: 55, labelFr: "Intermédiaire",labelEn: "Intermediate" },
-      { name: "Algorithmes",     level: 80, labelFr: "Avancé",       labelEn: "Advanced" },
+      { name: "Python",           usedIn: "PrankGuard, Optimisation 5G" },
+      { name: "Machine Learning", usedIn: "Optimisation 5G" },
+      { name: "Pandas / NumPy",   usedIn: "Optimisation 5G" },
+      { name: "Algorithmes",      usedIn: "Optimisation 5G, Compétition EPITECH" },
     ],
   },
   {
@@ -53,22 +51,22 @@ export const skillDomains: SkillDomain[] = [
     titleFr: "Langages Système & Game Dev",
     titleEn: "Systems & Game Dev",
     skills: [
-      { name: "Rust",            level: 70, labelFr: "Intermédiaire+", labelEn: "Intermediate+" },
-      { name: "Java",            level: 70, labelFr: "Intermédiaire+", labelEn: "Intermediate+" },
-      { name: "C / C++",         level: 40, labelFr: "Débutant+",      labelEn: "Beginner+" },
-      { name: "LibGDX / Pygame", level: 60, labelFr: "Intermédiaire",  labelEn: "Intermediate" },
+      { name: "Rust",            usedIn: "VOLT" },
+      { name: "Java",            usedIn: "Fist of Steel" },
+      { name: "C / C++",         usedIn: "Projets EPITECH" },
+      { name: "LibGDX / Pygame", usedIn: "Fist of Steel, Jeu Pygame" },
     ],
   },
   {
     id: "tools",
-    titleFr: "Outils & Méthodes",
-    titleEn: "Tools & Methods",
+    titleFr: "Outils & DevOps",
+    titleEn: "Tools & DevOps",
     skills: [
-      { name: "Git / GitHub",   level: 80, labelFr: "Avancé",       labelEn: "Advanced" },
-      { name: "Docker",         level: 40, labelFr: "Débutant+",    labelEn: "Beginner+" },
-      { name: "Linux / Bash",   level: 60, labelFr: "Intermédiaire",labelEn: "Intermediate" },
-      { name: "VS Code",        level: 85, labelFr: "Avancé",       labelEn: "Advanced" },
-      { name: "Vercel / CI-CD", level: 55, labelFr: "Intermédiaire",labelEn: "Intermediate" },
+      { name: "Git / GitHub",   usedIn: "Tous projets" },
+      { name: "Docker",         usedIn: "VOLT" },
+      { name: "Linux / Bash",   usedIn: "VOLT, Serveur" },
+      { name: "VS Code",        usedIn: "Tous projets" },
+      { name: "Vercel / CI-CD", usedIn: "Portfolio" },
     ],
   },
 ];

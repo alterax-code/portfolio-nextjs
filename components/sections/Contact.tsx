@@ -85,11 +85,11 @@ export default function Contact() {
     <section
       id="contact"
       ref={sectionRef as React.RefObject<HTMLElement>}
-      className={`py-24 px-4 section-fade ${inView ? "visible" : ""}`}
+      className={`py-16 px-4 section-fade ${inView ? "visible" : ""}`}
     >
       <div className="max-w-2xl mx-auto">
         {/* Section title */}
-        <div className="mb-12 text-center">
+        <div className="mb-8 text-center">
           <h2 className="section-title">
             {t.contact.sectionTitle === "Contact" ? (
               <>C<span>ontact</span></>

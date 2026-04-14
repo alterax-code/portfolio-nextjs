@@ -29,11 +29,11 @@ export default function About() {
     <section
       id="about"
       ref={sectionRef as React.RefObject<HTMLElement>}
-      className={`py-24 px-4 section-fade ${inView ? "visible" : ""}`}
+      className={`py-16 px-4 section-fade ${inView ? "visible" : ""}`}
     >
       <div className="max-w-6xl mx-auto">
         {/* Section title */}
-        <div className="mb-12 text-center">
+        <div className="mb-8 text-center">
           <h2 className="section-title">
             {t.about.sectionTitle === "À propos" ? (
               <>À <span>propos</span></>
@@ -48,7 +48,7 @@ export default function About() {
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
           {/* Left — Bio */}
           <div className="space-y-5">
             {t.about.bio.map((paragraph, i) => (

@@ -97,11 +97,11 @@ export default function Projects() {
     <section
       id="projects"
       ref={sectionRef as React.RefObject<HTMLElement>}
-      className={`py-24 px-4 section-fade ${inView ? "visible" : ""}`}
+      className={`py-16 px-4 section-fade ${inView ? "visible" : ""}`}
     >
       <div className="max-w-6xl mx-auto">
         {/* Section title */}
-        <div className="mb-12 text-center">
+        <div className="mb-8 text-center">
           <h2 className="section-title">
             {t.projects.sectionTitle === "Projets" ? (
               <>P<span>rojets</span></>

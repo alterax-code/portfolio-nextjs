@@ -38,7 +38,7 @@ export default function Hero({ onOpenCvModal }: HeroProps) {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-[85vh] flex items-center justify-center overflow-hidden"
       style={{
         background:
           "radial-gradient(ellipse at 50% 55%, rgba(139,0,0,0.18) 0%, transparent 65%), #0A0A0A",
@@ -79,7 +79,7 @@ export default function Hero({ onOpenCvModal }: HeroProps) {
         </p>
 
         {/* Subtitle */}
-        <p className="text-base sm:text-lg text-text-secondary mb-10">
+        <p className="text-base sm:text-lg text-text-secondary mb-6">
           {t.hero.subtitle}
         </p>
 
