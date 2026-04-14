@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { GraduationCap, Briefcase } from "lucide-react";
 
 function GithubIcon({ size = 14 }: { size?: number }) {
@@ -77,13 +76,11 @@ export default function About() {
                 background: "linear-gradient(135deg, #1a0000, #2a0a0a)",
               }}
             >
-              <Image
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
                 src="/images/profile.png"
                 alt="Lucas Jacob"
-                fill
-                className="object-cover"
-                sizes="128px"
-                priority
+                className="object-cover w-full h-full"
               />
             </div>
 

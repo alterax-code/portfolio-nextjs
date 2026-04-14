@@ -8,9 +8,15 @@ export type TimelineEntry = {
 export const timelineEntries: TimelineEntry[] = [
   {
     id: "autoformation",
-    date: "2024",
+    date: "Janv. 2024",
     eventFr: "Autoformation — Début de l'apprentissage du développement web en autodidacte",
     eventEn: "Self-learning — Started learning web development on my own",
+  },
+  {
+    id: "prepavenir",
+    date: "Sept. 2024",
+    eventFr: "Formation Prépavenir Franconville — BTS Développeur Web",
+    eventEn: "Prépavenir training in Franconville — Web Developer program",
   },
   {
     id: "premiers-projets",
@@ -25,10 +31,16 @@ export const timelineEntries: TimelineEntry[] = [
     eventEn: "Web developer internship at Plaoweb — Recipe management site",
   },
   {
-    id: "epitech",
+    id: "titre-pro",
     date: "Juil. 2025",
-    eventFr: "Entrée à EPITECH Paris — Cursus MSc Pro Data Science",
-    eventEn: "Joined EPITECH Paris — MSc Pro Data Science program",
+    eventFr: "Obtention du Titre Professionnel Développeur Web et Web Mobile (RNCP 5)",
+    eventEn: "Earned Professional Web & Mobile Developer certification (RNCP Level 5)",
+  },
+  {
+    id: "epitech",
+    date: "Sept. 2025",
+    eventFr: "Entrée à EPITECH Paris — Cursus MSc Pro Data Science (promo 2028)",
+    eventEn: "Joined EPITECH Paris — MSc Pro Data Science program (class of 2028)",
   },
   {
     id: "projets-avances",
